@@ -6113,7 +6113,10 @@ button.bg-secondary:hover,
 button.bg-secondary:focus {
   background-color: #0f0f14 !important;
 }
-
+.bg-form
+{
+  background-color: #b7d5cc;
+}
 .bg-success {
   background-color: #28a745 !important;
 }
@@ -6121,11 +6124,11 @@ button.bg-secondary:focus {
 a.bg-success:hover, a.bg-success:focus,
 button.bg-success:hover,
 button.bg-success:focus {
-  background-color: #1e7e34 !important;
+  background-color: lightgreen !important;
+ 
 }
-
 .bg-info {
-  background-color: #17a2b8 !important;
+  background-color: #01422e !important;
 }
 
 a.bg-info:hover, a.bg-info:focus,
