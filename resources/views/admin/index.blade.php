@@ -80,11 +80,10 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Loans</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/manageloans" class="dropdown-item">View Loans</a>
+                            <a href="/viewallloans" class="dropdown-item">View Loans</a>
                         </div>
                     </div>
                     <a href="/viewusers" class="nav-item nav-link"><i class="fa fa-th me-2"></i>View Users</a>
-                    <a href="/viewservices" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>View Services</a>
                     <!-- <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> -->
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Complains</a>
@@ -176,8 +175,7 @@
                     </div> -->
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <span class="d-none d-lg-inline-flex">ADMIN</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>

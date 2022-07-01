@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\models\gp;
 use App\models\secretary;
+use App\models\usertable;
 class adminController extends Controller
 {
    
@@ -177,7 +178,8 @@ class adminController extends Controller
     }
     public function viewusers()
     {
-        return view('admin.viewusers');
+        $data['user']=usertable::get();
+        return view('admin.viewusers',$data);
     }
     public function viewcertificates ()
     {
@@ -187,9 +189,4 @@ class adminController extends Controller
     {
         return view('admin.viewcomplaints');
     }
-    
-
-    
-
-   
 }

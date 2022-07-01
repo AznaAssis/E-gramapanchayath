@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Admin- Egarama panchayath
+    <title>Secretary- Egarama panchayath
     </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -53,7 +53,7 @@
                    
                     <div class="ms-3">
                         <h6 class="mb-0"></h6>
-                        <span>President</span>
+                        <span>Secretary</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
@@ -61,33 +61,36 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>GP</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/viewdetails" class="dropdown-item">View Details</a>
-                            <a href="/gp/viewsecretary" class="dropdown-item">View Secretary</a>
+                            <a href="/s/viewdetails" class="dropdown-item">View Details</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Certificates</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="/viewapplication" class="dropdown-item">View Applications</a>
-                            <a href="/addcatecategory" class="dropdown-item">Add category</a>
-                            <a href="/viewcatecategory" class="dropdown-item">View category</a>
+                            <a href="/s/viewcategory" class="dropdown-item">View category</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Loans</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/gp/manageloans" class="dropdown-item">Manage Loans</a>
-                            <a href="/gp/viewloans" class="dropdown-item" >View Loans</a>
+                            <a href="/s/manageloans" class="dropdown-item">Manage Loans</a>
+                            <a href="/s/viewloans" class="dropdown-item" >View Loans</a>
                         </div>
                     </div>
-                    <a href="/viewusers" class="nav-item nav-link"><i class="fa fa-th me-2"></i>View Users</a>
-                    <a href="/viewservices" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>View Services</a>
-                    <!-- <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> -->
+                    <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Services</a>
+                            <div class="dropdown-menu bg-transparent border-0">
+                                    <a href="/s/addservices" class="dropdown-item">Add Services</a>
+                                    <a href="/s/viewservices" class="dropdown-item">View Services</a>
+                            </div>
+                    </div>
+                    <a href="/s/viewusers" class="nav-item nav-link"><i class="fa fa-user-circle me-2"></i>View users</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Complains</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/viewcomplaints" class="dropdown-item">View Complaints</a>
-                            <a href="/viewfeedback" class="dropdown-item">View Contact Us</a>
+                            <a href="/addnews" class="dropdown-item">Add News</a>
+                            <a href="/viewnews" class="dropdown-item">View News</a>
                         </div>
                     </div>
                 </div>
@@ -111,127 +114,19 @@
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
-                        <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-envelope me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Message</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                    <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                    <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <hr class="dropdown-divider">
-                             <a href="#" class="dropdown-item">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                    <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                </div>
-                            </a>                             <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item text-center">See all message</a>
-                        </div> -->
-                    </div>
-                    <!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                           @foreach($sec as $value)<span class="d-none d-lg-inline-flex">{{$value->name}}</span>@endforeach
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Profile updated</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">New user added</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Password changed</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item text-center">See all notifications</a>
-                        </div>
-                    </div> -->
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                        @foreach($sec as $value)<a href="/sprofile/{{$value->id}}" class="dropdown-item">My Profile</a>@endforeach
+                            <a href="/logout" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
             </nav>
-            <!-- Navbar End -->
+            
 
-
-            <!-- Sale & Revenue Start -->
-            <!-- <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-area fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- Sale & Revenue End -->
-
-            @yield('gpindex')
+            @yield('secretary')
             
             <!-- Footer End -->
         </div>

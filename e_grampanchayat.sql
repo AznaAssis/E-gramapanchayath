@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2022 at 01:58 PM
+-- Generation Time: Jul 01, 2022 at 02:01 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -55,6 +55,14 @@ CREATE TABLE `categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `category`, `gpid`, `created_at`, `updated_at`) VALUES
+(1, 'Birth Certificate', 2, NULL, '2022-06-29 22:58:37'),
+(2, 'Death Certificate', 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -131,7 +139,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2022_06_29_044119_create_secretaries_table', 3),
 (9, '2022_06_29_052842_create_admins_table', 4),
 (11, '2022_06_29_053808_create_usertables_table', 5),
-(12, '2022_06_29_110344_create_categories_table', 6);
+(12, '2022_06_29_110344_create_categories_table', 6),
+(16, '2022_07_01_101809_create_schemes_table', 7);
 
 -- --------------------------------------------------------
 
@@ -162,6 +171,33 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `schemes`
+--
+
+CREATE TABLE `schemes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `panchayath_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `about` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `adate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enddate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `schemes`
+--
+
+INSERT INTO `schemes` (`id`, `panchayath_id`, `name`, `about`, `amount`, `adate`, `enddate`, `status`, `created_at`, `updated_at`) VALUES
+(1, 2, 'House Scheme', 'MoHUA has initiated the Global Housing Technology Challenge - India (GHTC-India) which aims to identify and mainstream a basket of innovative construction technologies from across the globe for housing construction sector that are sustainable, eco-friendly and disaster-resilient.', '250000', '2022-07-02', '2022-09-07', 'available', NULL, '2022-07-01 06:12:56'),
+(2, 4, 'House Scheme', 'Pradhan Mantri Awas Yojana – Urban (PMAY-U), a flagship Mission of Government of India being implemented by Ministry of Housing and Urban Affairs (MoHUA), was launched on 25th June 2015. The Mission addresses urban housing shortage among the EWS/LIG and MIG categories including the slum dwellers by ensuring a pucca house to all eligible urban households by the year 2022, when Nation completes 75 years of its Independence.', '250000', '2022-07-02', '2022-07-22', 'available', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -293,6 +329,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `schemes`
+--
+ALTER TABLE `schemes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `secretaries`
 --
 ALTER TABLE `secretaries`
@@ -326,7 +368,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -344,13 +386,19 @@ ALTER TABLE `gps`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `schemes`
+--
+ALTER TABLE `schemes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `secretaries`

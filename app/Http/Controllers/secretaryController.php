@@ -3,23 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Models\secretary;
+use App\Models\gp;
+use App\Models\usertable;
+use App\Models\category;
 use Illuminate\Http\Request;
 
 class secretaryController extends Controller
 {
     public function index()
     {
-        return view('secretary.index');
+        $id=session('sess');
+        $data['sec']=secretary::where('id',$id)->get();
+        return view('secretary.index',$data);
         
     }
-    // public function viewgramapanchayath ()
-    // {
-    //     return view('admin.viewgramapanchayath');
-    // }
-    // public function addgaramapanchayath()
-    // {
-    //     return view('admin.addgaramapanchayath');
-    // }
+    public function viewdetails ()
+    {
+        $id=session('sess');
+        $data['sec']=secretary::where('id',$id)->get();
+        $panchayth=secretary::where('id',$id)->value('panchayth');
+        
+        $data['gp']=gp::where('name',$panchayth)->get();
+        return view('secretary.viewgpdetails',$data);
+    }
+    public function viewusers()
+    {
+        return view('secretary.viewusers');
+    }
+    public function viewcategory()
+    {
+        $id=session('sess');
+        $data['sec']=secretary::where('id',$id)->get();
+        $panchayth=secretary::where('id',$id)->value('panchayth');
+        $pid=gp::where('name',$panchayth)->value('id');
+        $data['category']=category::where('gpid',$pid)->get();
+        return view('secretary.viewcategory ',$data);
+    }
     // public function addsecretary()
     // {
     //     return view('admin.addsecretary');

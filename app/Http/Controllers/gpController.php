@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\models\gp;
 use App\models\secretary;
 use App\models\usertable;
+use App\models\category;
+use App\models\scheme;
 
 class gpController extends Controller
 {
@@ -44,19 +46,91 @@ class gpController extends Controller
         $id=session('sess');
         $cat=$req->input('category');
         $data=['category'=>$cat,'gpid'=>$id];
+        category::insert($data);
         return redirect('/viewcategory');
     }
     public function viewcategory()
     {
-        return view('gp.viewcategory');
+        $id=session('sess');
+        $data['category']=category::where('gpid',$id)->get();
+        return view('gp.viewcategory',$data);
     }
-    public function manageloans()
+    public function editcategory($id)
     {
-        return view('gp.manageloans');
+        // $id=session('sess');
+        $data['category']=category::where('id',$id)->get();
+        return view('gp.editcategory',$data);
     }
-    public function viewloans()
+    public function editcategoryaction(Request $req,$id)
     {
-        return view('gp.viewloans');
+        $cat=$req->input('category');
+        $data=['category'=>$cat];
+        category::where('id',$id)->update($data);
+        return redirect('/viewcategory');
+    }
+    public function deletecategory($id)
+    {
+        category::where('id',$id)->delete();
+        return redirect('/viewcategory');
+    }
+    public function managescheme()
+    {
+        $id=session('sess');
+        $data['scheme']=scheme::where('panchayath_id',$id)->get();
+        return view('gp.managescheme',$data);
+    }
+    public function schmeaction(Request $req)
+    {
+        $pid=session('sess');
+        $name=$req->input('name');
+        $about=$req->input('about');
+        $amount=$req->input('amount');
+        $adate=$req->input('adate');
+        $endate=$req->input('enddate');
+        // echo $endate;
+        // exit();
+        $data=[
+            'panchayath_id'=>$pid,
+            'name'=>$name,
+            'about'=>$about,
+            'amount'=>$amount,
+            'adate'=>$adate,
+            'enddate'=>$endate,
+            'status'=>"available"
+        ];
+        scheme::insert($data);
+        return redirect('/gp/managescheme');
+    }
+    public function editscheme($id)
+    {
+        $data['scheme']=scheme::where('id',$id)->get();
+        return view('gp.editscheme',$data);
+    }
+    public function editschemeaction(Request $req,$id)
+    {
+        // $pid=session('sess');
+        $name=$req->input('name');
+        $about=$req->input('about');
+        $amount=$req->input('amount');
+        $adate=$req->input('adate');
+        $endate=$req->input('enddate');
+        $data=[
+            'name'=>$name,
+            'about'=>$about,
+            'amount'=>$amount,
+            'adate'=>$adate,
+            'enddate'=>$endate,
+            'status'=>"available"
+        ];
+        scheme::where('id',$id)->update($data);
+        return redirect('/gp/managescheme');
+    }
+    public function viewusers()
+    {
+        $id=session('sess');
+        $panchayth=gp::where('id',$id)->value('name');
+        $data['user']=usertable::where('panchayth',$panchayth)->get();
+        return view('gp.viewusers',$data);
     }
 
 
