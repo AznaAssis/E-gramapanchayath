@@ -56,41 +56,13 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/adminindex" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>GP</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/viewgramapanchayath" class="dropdown-item">View GP</a>
-                            <a href="/addgaramapanchayath" class="dropdown-item"> ADD GP</a>
-                        </div>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Secretary</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/addsecretary" class="dropdown-item">Add Secretary</a>
-                            <a href="/viewsecretary" class="dropdown-item">View Secretary</a>
-                        </div>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Certificates</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/addcatecategory" class="dropdown-item">View category</a>
-                        </div>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Loans</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/viewallloans" class="dropdown-item">View Loans</a>
-                        </div>
-                    </div>
-                    <a href="/viewusers" class="nav-item nav-link"><i class="fa fa-th me-2"></i>View Users</a>
-                    <!-- <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> -->
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Complains</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/viewfeedback" class="dropdown-item">View Contact Us</a>
-                        </div>
-                    </div>
+                    <a href="/adminindex" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>Dashboard</a>
+                    <a href="/addgaramapanchayath"  class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>ADD GP</a>
+                    <a href="/viewgramapanchayath" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>VIEW GP</a>
+                    <a href="/viewsecretary"  class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>View Secretary</a>
+                    <a href="/viewcategory" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>View Category</a>
+                    <a href="/viewschemes" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>View Schemes</a>
+                    <a href="/viewfeedback"  class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>View feedabck</a>
                 </div>
             </nav>
         </div>

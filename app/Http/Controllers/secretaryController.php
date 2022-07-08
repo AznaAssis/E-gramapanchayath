@@ -39,10 +39,12 @@ class secretaryController extends Controller
         $data['category']=category::where('gpid',$pid)->get();
         return view('secretary.viewcategory ',$data);
     }
-    // public function addsecretary()
-    // {
-    //     return view('admin.addsecretary');
-    // }
+    public function addnews()
+    {
+        $id=session('sess');
+        $data['sec']=secretary::where('id',$id)->get();
+        return view('secretary.addnews',$data);
+    }
     // public function viewsecretary()
     // {
     //     return view('admin.viewsecretary');

@@ -125,7 +125,7 @@ class indexController extends Controller
         }
         else
         {
-                return redirect('/secretarylogin');
+                return redirect('/slogin');
         }
     }
     public function gploginaction(Request $req)
@@ -136,7 +136,7 @@ class indexController extends Controller
         if(isset($data))
         {
                 $req->session()->put(array('sess'=>$data->id));
-                return redirect('/gpindex');
+                return redirect('/gp/gpindex');
         }
         else
         {
@@ -152,6 +152,9 @@ class indexController extends Controller
         $data['gp']=gp::get();
         return view('viewpanchayath',$data);
     }
-    
+    public function logout()
+    {
+        return redirect('/');
+    }
 
 }

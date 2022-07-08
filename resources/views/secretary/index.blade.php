@@ -72,27 +72,20 @@
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Loans</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>SCHEMES</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="/s/manageloans" class="dropdown-item">Manage Loans</a>
-                            <a href="/s/viewloans" class="dropdown-item" >View Loans</a>
+                            <a href="/s/viewloans" class="dropdown-item" >View APPLICATIN</a>
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
+                    <!-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Services</a>
                             <div class="dropdown-menu bg-transparent border-0">
                                     <a href="/s/addservices" class="dropdown-item">Add Services</a>
                                     <a href="/s/viewservices" class="dropdown-item">View Services</a>
                             </div>
-                    </div>
+                    </div> -->
                     <a href="/s/viewusers" class="nav-item nav-link"><i class="fa fa-user-circle me-2"></i>View users</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Complains</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/addnews" class="dropdown-item">Add News</a>
-                            <a href="/viewnews" class="dropdown-item">View News</a>
-                        </div>
-                    </div>
                 </div>
             </nav>
         </div>

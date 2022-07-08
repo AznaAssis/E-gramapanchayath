@@ -1,7 +1,7 @@
 
 @extends('indexheader')
 @section('indexbody')
-<section>
+<!-- <section>
     <div class="container">
         <div class="row">
             <div class="mb-3 col-sm-5">
@@ -59,8 +59,8 @@
             </div>
         </div>
     </div>
-</section>
-<section>
+</section> -->
+<!-- <section>
     <div class="container">
         <div class="row">
           <div class="col-md-4 mb-4">
@@ -72,9 +72,10 @@
                                 <a class="btn " href=""></a>
                                 <center>
                                 <h5 class="m-56 ml-3 text-truncate">{{$value->name}}</h5>
+                                <h5 class="m-56 ml-3 text-truncate">{{$value->name}}</h5>
                                 </center>
                             </div>
-                   <center> <button><a href="/viewgp/{{$value->id}}">More Details</a></button></center>
+                   <center> <button class="btn" ><a href="/viewgp/{{$value->id}}">VIEW SCHEMES</a></button></center>
                         </div>
                     </div>
                 </div>
@@ -83,8 +84,8 @@
             
         </div>
     </div>
-</section>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</section> -->
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 <script>
@@ -106,5 +107,5 @@
 			});
 		});
 	});
-</script>
+</script> -->
 @endsection

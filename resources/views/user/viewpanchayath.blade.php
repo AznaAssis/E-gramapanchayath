@@ -1,5 +1,5 @@
-@extends('gp.gpindex')
-@section('gpindex')
+@extends('user.userheader')
+@section('indexbody')
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary text-center rounded p-4">
         @foreach($gp as $value)
@@ -14,12 +14,20 @@
                 <tr class="text-white"><th scope="col">email</th>:<td>{{$value->email}}</td></tr>
                 <tr class="text-white"><th scope="col">Phone Number</th>:<td>{{$value->phno}}</td></tr>
                 <tr class="text-white"><th scope="col">username</th>:<td>{{$value->username}}</td></tr>
-                <tr class="text-white"><th scope="col">panchayath</th>:<td>{{$value->panchayth}}</td></tr>
-            </tbody>
+                <tr class="text-white"><th scope="col">state</th>:<td>{{$value->state}}</td></tr>
+                <tr class="text-white"><th scope="col">District</th><td>{{$value->district}}</td></tr>
+                <tr class="text-white"><th scope="col">Block PAnchayth</th><td>{{$value->bp}}</td></tr>
+                <tr class="text-white"><th scope="col">Thaluk</th><td>{{$value->taluk}}</td></tr>
+                <tr class="text-white"><th scope="col">No.of Wards</th><td>{{$value->wards}}</td></tr>
+                <tr class="text-white"><th scope="col">No.of Population</th><td>{{$value->population}}</td></tr>
+                <tr class="text-white"><th scope="col">No.of Schools</th><td>{{$value->schools}}</td></tr>
+                <tr class="text-white"><th scope="col">Image</th><td><img src="/gp/{{$value->gpimage}}" height="100px" width=25%></td></tr>
+                
+                
+                </tbody>
             </table>
         </div>
         @endforeach
     </div>
 </div>
 @endsection
- 

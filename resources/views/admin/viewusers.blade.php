@@ -17,6 +17,7 @@
                         <th scope="col">Username</th>
                         <th scope="col">Gender</th>
                         <th scope="col">Age</th>
+                        <th scope="col">Panchayth Name</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,7 @@
                         <td>{{$value->username}}</td>
                         <td>{{$value->gender}}</td>
                         <td>{{$value->age}}</td>
+                        <td>{{$value->panchayth}}</td>
                     </tr>
                     @endforeach
                 </tbody>

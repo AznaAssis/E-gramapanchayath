@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('schemeapplications', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
-            $table->longText('discription');
-            $table->integer('gpid');
+            $table->integer('schemeid');
+            $table->integer('userid');
+            $table->string('date');
+            $table->string('status')->default("application completed");
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('schemeapplications');
     }
 };

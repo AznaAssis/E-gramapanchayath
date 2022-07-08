@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\models\gp;
 use App\models\secretary;
 use App\models\usertable;
+use App\models\category;
+use App\models\scheme;
+use App\models\feedabck;
 class adminController extends Controller
 {
    
@@ -123,70 +126,58 @@ class adminController extends Controller
         gp::where('id',$id)->delete();
         return redirect('/viewgramapanchayath');
     }
-    public function addsecretary()
-    {
-        $data['gp']=gp::get();
-        return view('admin.addsecretary',$data);
-    }
-    public function addsecretaryaction(Request $req)
-    {
-        $name=$req->input('name');
-        $panchayth=$req->input('panchayth');
-        $email=$req->input('email');
-        $phno=$req->input('phno');
-        $password=$req->input('password');
-        $username=$req->input('username');
-        $data=['name'=>$name,
-        'email'=>$email,
-        'phno'=>$phno,
-        'username'=>$username,
-        'panchayth'=>$panchayth,
-        'password'=>$password,
-        ];
-        secretary::insert($data);
-        return redirect('/viewsecretary');
-    }
     public function viewsecretary()
     {
-       $data['secretary']=secretary::get();
+        $data['secretary'] = secretary::get();
         return view('admin.viewsecretary',$data);
     }
-    public function deletesecretary($id)
-    {   
-        secretary::where('id',$id)->delete();
-        return redirect('/viewsecretary');
-    }
-    public function manageloans()
+  
+    
+    public function viewcategory()
     {
-        return view('admin.manageloans');
+        $data['category']=category::get();
+        return view('admin.viewcategory',$data);
     }
-    public function viewapplications()
+    public function viewschemes()
     {
-        return view('admin.viewapplications');
+        $data['schemes']=scheme::get();
+        return view('admin.viewschemes',$data);
     }
     public function viewfeedback()
     {
-        return view('admin.viewfeedback');
-    }
-    public function viewloans()
-    {
-        return view('admin.viewloans');
-    }
-    public function viewservices()
-    {
-        return view('admin.viewservices');
+        $data['feedback']=feedabck::get();
+        return view('admin.viewfeedback',$data);
     }
     public function viewusers()
     {
         $data['user']=usertable::get();
         return view('admin.viewusers',$data);
     }
-    public function viewcertificates ()
-    {
-        return view('admin.viewcertificates');
-    }
-    public function viewcomplaints ()
-    {
-        return view('admin.viewcomplaints');
-    }
+    // public function viewcertificates ()
+    // {
+    //     return view('admin.viewcertificates');
+    // }
+    // public function viewcomplaints ()
+    // {
+    //     return view('admin.viewcomplaints');
+    // }
+        // public function deletesecretary($id)
+    // {   
+    //     secretary::where('id',$id)->delete();
+    //     return redirect('/viewsecretary');
+    // }
+    // public function viewloans()
+    // {
+    //     return view('admin.viewloans');
+    // }
+    // public function viewservices()
+    // {
+    //     return view('admin.viewservices');
+    // }
+        // public function addsecretary()
+    // {
+    //     $data['gp']=gp::get();
+    //     return view('admin.addsecretary',$data);
+    // }
+    // 
 }

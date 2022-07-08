@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('feedabcks', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
-            $table->longText('discription');
-            $table->integer('gpid');
+            $table->string('name');
+            $table->string('title');
+            $table->string('discription');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('feedabcks');
     }
 };

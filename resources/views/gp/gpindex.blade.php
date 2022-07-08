@@ -57,79 +57,56 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/gpindex" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>GP</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/viewdetails" class="dropdown-item">View Details</a>
-                            <a href="/gp/viewsecretary" class="dropdown-item">View Secretary</a>
-                        </div>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Certificates</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/viewapplication" class="dropdown-item">View Applications</a>
-                            <a href="/addcatecategory" class="dropdown-item">Add category</a>
-                            <a href="/viewcategory" class="dropdown-item">View category</a>
-                        </div>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Schemes</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/gp/managescheme" class="dropdown-item">Manage scheme</a>
-                            <a href="/gp/viewschme" class="dropdown-item">View scheme</a>
-                        </div>
-                    </div>
-                    <a href="/gp/viewusers" class="nav-item nav-link"><i class="fa fa-th me-2"></i>View Users</a>
-                    <a href="/viewservices" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>View Services</a>
-                    <!-- <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> -->
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Complains</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/viewcomplaints" class="dropdown-item">View Complaints</a>
-                            <a href="/viewfeedback" class="dropdown-item">View Contact Us</a>
-                        </div>
-                    </div>
+                    <a href="/gp/gpindex" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>HOME</a>
+                    <a href="/gp/viewdetails" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>VIEW GP</a>
+                    <a href="/gp/secretary" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>Manage Secretary</a>
+                    <a href="/gp/viewapplication" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>View Application</a>
+                    <a href="/gp/viewcertificate" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>VIEW Certificates</a>
+                    <a href="/gp/viewservices" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>View services</a>
+                    <a href="/gp/viewusers" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>View Users</a>
+                    <a href="/gp/category" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>Manage category</a>
+                    <a href="/gp/schemes" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>Manage Schemes</a>
                 </div>
             </nav>
         </div>
-        <!-- Sidebar End -->
+    </div>
+    <!-- Sidebar End -->
 
 
-        <!-- Content Start -->
-        <div class="content">
-            <!-- Navbar Start -->
-            <nav class="navbar navbar-expand bg-secondary navbar-light sticky-top px-4 py-0">
-                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
-                </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
-                </form>
-                <div class="navbar-nav align-items-center ms-auto">
-                    <div class="nav-item dropdown">
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
-                        </div>
+    <!-- Content Start -->
+    <div class="content">
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand bg-secondary navbar-light sticky-top px-4 py-0">
+            <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+            </a>
+            <a href="#" class="sidebar-toggler flex-shrink-0">
+                <i class="fa fa-bars"></i>
+            </a>
+            <form class="d-none d-md-flex ms-4">
+                <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+            </form>
+            <div class="navbar-nav align-items-center ms-auto">
+                <div class="nav-item dropdown">
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <span class="d-none d-lg-inline-flex">John Doe</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                        <a href="#" class="dropdown-item">My Profile</a>
+                        <a href="#" class="dropdown-item">Settings</a>
+                        <a href="#" class="dropdown-item">Log Out</a>
                     </div>
                 </div>
-            </nav>
-            <!-- Navbar End -->
+            </div>
+        </nav>
+        <!-- Navbar End -->
 
 
-            <!-- Sale & Revenue Start -->
-            <!-- <div class="container-fluid pt-4 px-4">
+        <!-- Sale & Revenue Start -->
+        <!-- <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
@@ -169,17 +146,17 @@
                     </div>
                 </div>
             </div> -->
-            <!-- Sale & Revenue End -->
+        <!-- Sale & Revenue End -->
 
-            @yield('gpindex')
+        @yield('gpindex')
 
-            <!-- Footer End -->
-        </div>
-        <!-- Content End -->
+        <!-- Footer End -->
+    </div>
+    <!-- Content End -->
 
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
