@@ -8,6 +8,10 @@ use App\models\secretary;
 use App\models\usertable;
 use App\models\category;
 use App\models\scheme;
+use App\models\schemeapplication;
+use App\models\birthcertificate;
+use App\models\marriagecertificate;
+use App\models\deathcertificate;
 
 class gpController extends Controller
 {
@@ -96,7 +100,7 @@ class gpController extends Controller
         $data = [
             'category' => $cat,
             'discription' => $discription,
-            'gpid'=>$id
+            'gpid' => $id
         ];
         category::insert($data);
         return redirect('/gp/category');
@@ -194,12 +198,73 @@ class gpController extends Controller
         $data['user'] = usertable::where('panchayth', $panchayth)->get();
         return view('gp.viewusers', $data);
     }
-    public function viewcertificate()
+    public function viewscheme($id)
     {
-        return view('gp.viewcertificate');
+        $gpid = session('sess');
+        $data['scheme'] = schemeapplication::join('schemes', 'schemes.id', '=', 'schemeapplications.schemeid')
+            ->join('gps', 'gps.id', '=', 'schemes.panchayath_id')
+            ->where('gps.id', $gpid)
+            ->where('schemes.id', $id)
+            ->where('schemeapplications.schemeid', $id)
+            ->select(
+                'schemeapplications.id',
+                'schemeapplications.userid',
+                'schemeapplications.date',
+                'schemeapplications.status',
+                'schemes.name'
+            )
+            ->get();
+        return view('gp.viewscheme', $data);
     }
-    public function viewservices()
+    public function viewcertificate($name)
     {
-        return view('gp.viewservices');
+        $id = session('sess');
+        if ($name == "birth certificate") {
+            $data['birth'] = birthcertificate::join('gps', 'gps.id', '=', 'birthcertificates.gpid')
+                ->where('gps.id', $id)
+                ->select('birthcertificates.id', 'birthcertificates.status', 'birthcertificates.userid')
+                ->get();
+            return view('gp.birthview', $data);
+        } elseif ($name == "death certificate") {
+            $data['sec'] = secretary::where('id', $id)->get();
+            $data['death'] = deathcertificate::join('gps', 'gps.id', '=', 'deathcertificates.gpid')
+                ->where('gps.id', $id)
+                ->select('deathcertificates.id', 'deathcertificates.status', 'deathcertificates.userid')
+                ->get();
+            return view('gp.deathview', $data);
+        } elseif ($name == "marriage(common)" || $name == "marriage(Hindu)") {
+            $data['sec'] = secretary::where('id', $id)->get();
+            $data['marriage'] = marriagecertificate::join('gps', 'gps.id', '=', 'marriagecertificates.gpid')
+                ->where('gps.id', $id)
+                ->select('marriagecertificates.id', 'marriagecertificates.mtype', 'marriagecertificates.status', 'marriagecertificates.userid')
+                ->get();
+            return view('gp.marriageview', $data);
+        } else {
+            return redirect('/gp/category');
+        }
+    }
+    public function approvem($id)
+    {
+        // echo $id;
+        // exit();
+        $data = ['status' => 'approve'];
+        marriagecertificate::where('id', $id)->update($data);
+        return redirect('/gp/category');
+    }
+    public function approveb($id)
+    {
+        // echo $id;
+        // exit();
+        $data = ['status' => 'approve'];
+        birthcertificate::where('id', $id)->update($data);
+        return redirect('/gp/category');
+    }
+    public function approved($id)
+    {
+        // echo $id;
+        // exit();
+        $data = ['status' => 'approve'];
+        deathcertificate::where('id', $id)->update($data);
+        return redirect('/gp/category');
     }
 }

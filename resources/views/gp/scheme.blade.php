@@ -95,6 +95,7 @@
                                     <td>{{$value->status}}</td>
                                     <td><a class="btn btn-sm btn-primary" href="/gp/editscheme/{{$value->id}}">Edit</a></td>
                                     <td><a class="btn btn-sm btn-primary" href="/gp/deletescheme/{{$value->id}}">Delete</a></td>
+                                    <td><a class="btn btn-sm"  href="/gp/viewscheme/{{$value->id}}">applications</a></td>
                                     @endforeach
                             </tbody>
                         </table>

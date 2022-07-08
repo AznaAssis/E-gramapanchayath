@@ -67,15 +67,13 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Certificates</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/viewapplication" class="dropdown-item">View Applications</a>
-                            <a href="/s/viewcategory" class="dropdown-item">View category</a>
+                            <a href="/viewapplicationsec" class="dropdown-item">View Applications</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>SCHEMES</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="/s/manageloans" class="dropdown-item">Manage Loans</a>
-                            <a href="/s/viewloans" class="dropdown-item" >View APPLICATIN</a>
+                            <a href="/s/viewschemes" class="dropdown-item" >View APPLICATION</a>
                         </div>
                     </div>
                     <!-- <div class="nav-item dropdown">

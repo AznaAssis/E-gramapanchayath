@@ -1,16 +1,19 @@
+
+
 @extends('user.forms.formsheader')
 @section('indexbody')
 <section>
         <div class="container">
             <center> <h2>MARRIAGE CERTIFICATE REGISTRATION</h2></center>
-            <br><br><br><form action="/marrigecertificateaction">
+            <br><br><br><form action="/marrigecertificateaction" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="row">
                     <div class="col-sm-4"></div>
                     <div class="col-sm-6">
                         <select name="mtype" id="" class="form-control">
                             <option value="">SELECT TYPE</option>
-                            <option value="marriag(common)">Common</option>
-                            <option value="marriag(hindu)">Hindu</option>
+                            <option value="common">Common</option>
+                            <option value="hindu">Hindu</option>
                         </select>
                     </div>
                 </div>
@@ -45,7 +48,7 @@
                         <input type="text" name="hrelegion" id="" class="form-control">
                     </div>
                     <div class="col-sm-4">
-                        <input type="text" name="wreligion" id="" class="form-control">
+                        <input type="text" name="wrelegion" id="" class="form-control">
                     </div>
                 </div><br><br>
                 <div class="row">
@@ -86,10 +89,18 @@
                         <label for="">Name ID proof</label>
                     </div>
                     <div class="col-sm-4">
-                        <input type="text" name="hidproof" id="" class="form-control">
+                       <select name="hidproof" class="form-control">
+                       <option value="adhar card">Adhar card</option>
+                        <option value="voter id card">Voter Id card</option>
+                        <option value="pancard">Pancard</option>
+                       </select>
                     </div>
                     <div class="col-sm-4">
-                        <input type="text" name="widproof" id="" class="form-control">
+                    <select name="widproof" class="form-control">
+                       <option value="adhar card">Adhar card</option>
+                        <option value="voter id card">Voter Id card</option>
+                        <option value="pancard">Pancard</option>
+                       </select>
                     </div>
                 </div><br><br>
                 <div class="row">
@@ -97,10 +108,10 @@
                         <label for=""></label>ID proof</label>
                     </div>
                     <div class="col-sm-4">
-                        <input type="file" name="hidprooffile" id="" class="form-control">
+                        <input type="file" name="hidproof" id="" class="form-control">
                     </div>
                     <div class="col-sm-4">
-                        <input type="file" name="widprooffile" id="" class="form-control">
+                        <input type="file" name="widproof" id="" class="form-control">
                     </div>
                 </div><br><br>
                 <div class="row">

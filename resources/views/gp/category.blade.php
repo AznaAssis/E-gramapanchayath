@@ -79,6 +79,7 @@
                                     <td class="content-align-center">{{$value->gpid}}</td>
                                     <td><a class="btn btn-sm btn-primary" href="/gp/editcategory/{{$value->id}}">EDIT</a></td>
                                     <td><a class="btn btn-sm btn-primary" href="/gp/deletecategory/{{$value->id}}">DELETE</a></td>
+                                    <td><a class="btn btn-sm btn-primary" href="/gp/viewcertificate/{{$value->category}}">View Applications</a></td>
                                     @endforeach
                             </tbody>
                         </table>

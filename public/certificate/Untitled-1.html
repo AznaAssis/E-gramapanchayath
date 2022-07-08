@@ -1,0 +1,247 @@
+<section>
+    <div class="div">
+        <div class="container">
+            <h3><b>Welcome</b><b style="color:#28b780"> Ms. Renci George</b>!<br><br>
+                <b>Please fill the form and submit it,this is will allow us to process you apllication
+                    faster.</b><br>
+                <p>We look forward to having you as part of our team at the earliest and for that we would like you
+                    to
+                    provide us the details requestedin the form below </p><br>
+            </h3>
+        </div>
+    </div>
+    <br>
+</section>
+<section>
+    <div class="container">
+        <form class="section">
+            <h2><b>Personal details</b></h2>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="" class="form-label">
+                        <h5>FIRST NAME *</h5>
+                    </label>
+                    <input type="text" class="form-control" name="firstName">
+                </div>
+                <div class="col-sm-4">
+                    <label for="" class="form-label">
+                        <h5>MIDDLE NAME</h5>
+                    </label>
+                    <input type="text" class="form-control" name="middleName">
+                </div>
+                <div class="col-sm-4">
+                    <label for="" class="form-label">
+                        <h5>LAST NAME *</h5>
+                    </label>
+                    <input type="text" class="form-control" name="lastName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="" class="form-label">
+                        <h5>DATE OF BIRTH *</h5>
+                    </label>
+                    <input type="date" class="form-control slds-input" name="DOB">
+                </div>
+                <div class="col-sm-4">
+                    <label for="" class="form-label">
+                        <h5>PRIMARY PHONE *</h5>
+                    </label>
+                    <input type="number" class="form-control" name="primaryPhone">
+                </div>
+                <div class="col-sm-4">
+                    <label for="" class="form-label">
+                        <h5>SECONDARY PHONE *</h5>
+                    </label>
+                    <input type="number" class="form-control" name="secondaryPhone">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="" class="form-label">
+                        <h5>ADDRESS *</h5>
+                    </label>
+                    <input type="text" class="form-control" name="address">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="" class="form-label">
+                        <h5>PINCODE *</h5>
+                    </label>
+                    <input type="number" max="6" class="form-control" name="pincode">
+                </div>
+                <div class="col-sm-8">
+                    <label for="" class="form-label">
+                        <h5>EMAIL ID *</h5>
+                    </label>
+                    <input type="email" class="form-control" name="emailid">
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-sm-9"></div>
+                <div class="col-sm-3">
+                    <input type="submit" class="btn btn-danger rounded-pill" value="SAVE & NEXT">
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<footer style="padding-top: 30px;">
+
+    <div class="row">
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5">
+            <p class="text-info">© 2021 Bytestrone. All rights reserved.</p>
+        </div>
+
+    </div>
+    <div style="width:100%;;border-top: 5px solid #28b780;"></div>
+    </div>
+</footer>
+
+
+
+.form-label {
+    color: #28b780;
+}
+.section {
+    padding-top: 10px;
+    padding-left: 20px;
+    background-color: rgb(206, 206, 206);
+    font-size: 20px;
+    padding-right: 100px;
+    padding-bottom: 20px;
+}
+h3 {
+    padding-top: 28px;
+    padding-left: 20px;
+    padding-right: 100px;
+    padding-bottom: 10px;
+    background-color: rgb(177, 177, 177);
+    font-size: 10px;
+}
+div.container {
+    margin-left: 200px;
+    padding: 1px 16px;
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--secondary);
+    transition: 0.5s;
+    z-index: 999;
+}
+.sidebar .navbar .navbar-nav .nav-link {
+    padding: 7px 20px;
+    color: var(--light);
+    font-weight: 500;
+    border-left: 3px solid var(--secondary);
+    border-radius: 0 30px 30px 0;
+    outline: none;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover,
+.sidebar .navbar .navbar-nav .nav-link.active {
+    color: var(--primary);
+    background: var(--dark);
+    border-color: var(--primary);
+}
+
+.sidebar .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark);
+    border-radius: 40px;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover i,
+.sidebar .navbar .navbar-nav .nav-link.active i {
+    background: var(--secondary);
+}
+
+.sidebar .navbar .dropdown-toggle::after {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.sidebar .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+.sidebar .navbar .dropdown-item {
+    padding-left: 25px;
+    border-radius: 0 30px 30px 0;
+    color: var(--light);
+}
+
+.sidebar .navbar .dropdown-item:hover,
+.sidebar .navbar .dropdown-item.active {
+    background: var(--dark);
+}
+
+.content .navbar .navbar-nav .nav-link {
+    margin-left: 25px;
+    padding: 12px 0;
+    color: var(--light);
+    outline: none;
+}
+
+.content .navbar .navbar-nav .nav-link:hover,
+.content .navbar .navbar-nav .nav-link.active {
+    color: var(--primary);
+}
+
+.content .navbar .sidebar-toggler,
+.content .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark);
+    border-radius: 40px;
+}
+
+.content .navbar .dropdown-item {
+    color: var(--light);
+}
+
+.content .navbar .dropdown-item:hover,
+.content .navbar .dropdown-item.active {
+    background: var(--dark);
+}
+
+.content .navbar .dropdown-toggle::after {
+    margin-left: 6px;
+    vertical-align: middle;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.content .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+@media (max-width: 575.98px) {
+    .content .navbar .navbar-nav .nav-link {
+        margin-left: 15px;
+    }
+}

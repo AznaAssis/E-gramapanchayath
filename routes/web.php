@@ -73,15 +73,30 @@ Route::get('/gp/editcategory/{id}',[gpController::class,'editcategory']);
 Route::post('/gp/editcategoryaction/{id}',[gpController::class,'editcategoryaction']);
 Route::get('/gp/deletecategory/{id}',[gpController::class,'deletecategory']);
 Route::get('/gp/viewservices',[gpController::class,'viewservices']);
+Route::get('/gp/viewscheme/{id}',[gpController::class,'viewscheme']);
+Route::get('/gp/viewcertificate/{name}',[gpController::class,'viewcertificate']);
+Route::get('/approves/{id}',[gpController::class,'approves']);
+Route::get('/approved/{id}',[gpController::class,'approved']);
+Route::get('/approveb/{id}',[gpController::class,'approveb']);
+Route::get('/approvem/{id}',[gpController::class,'approvem']);
+
 
 Route::get('/sindex',[secretaryController::class,'index']);
 Route::get('/s/viewdetails',[secretaryController::class,'viewdetails']);
 Route::get('/gp/viewsecretary',[secretaryController::class,'viewsecretary']);
-Route::get('/viewapplication',[secretaryController::class,'viewapplication']);
-Route::get('/s/viewcategory',[secretaryController::class,'viewcategory']);
-Route::get('/addnews',[secretaryController::class,'addnews']);
+Route::get('/viewapplicationsec',[secretaryController::class,'viewapplicationsec']);
+Route::get('/viewsec/{name}',[secretaryController::class,'viewsec']);
 Route::get('/gp/manageloans',[secretaryController::class,'manageloans']);
-Route::get('/gp/viewloans',[secretaryController::class,'viewloans']);
+Route::get('/moremarriage/{id}',[secretaryController::class,'moremarriage']);
+Route::get('/verifym/{id}',[secretaryController::class,'verifym']);
+Route::get('/morebirth/{id}',[secretaryController::class,'morebirth']);
+Route::get('/verifyb/{id}',[secretaryController::class,'verifyb']);
+Route::get('/moredeath/{id}',[secretaryController::class,'moredeath']);
+Route::get('/verifyd/{id}',[secretaryController::class,'verifyd']);
+Route::get('/s/viewschemes',[secretaryController::class,'viewschemes']);
+Route::get('/s/viewapplication/{id}',[secretaryController::class,'viewapplication']);
+Route::get('/verifys/{id}',[secretaryController::class,'verifys']);
+Route::get('s/viewusers',[secretaryController::class,'viewusers']);
 
 
 Route::get('/userindex',[userController::class,'userindex']);
@@ -91,15 +106,14 @@ Route::get('/schemesandcertificate',[userController::class,'schemesandcertificat
 Route::get('/readscheme/{id}',[userController::class,'readscheme']);
 Route::get('/applycertificates/{id}',[userController::class,'applycertificates']);
 Route::get('/applyscheme/{id}',[userController::class,'applyscheme']);
-Route::get('/view',[userController::class,'view']);
+Route::get('/view/{name}',[userController::class,'view']);
 Route::post('/schemeapllyaction/{id}',[userController::class,'schemeapllyaction']);
 Route::get('/applycertificates/{name}',[userController::class,'applycertificates']);
 Route::post('/birthcertificateaction',[userController::class,'birthcertificateaction']);
 Route::post('/deathcertificateaction',[userController::class,'deathcertificateaction']);
 Route::post('/marrigecertificateaction',[userController::class,'marrigecertificateaction']);
-Route::post('/commoncertificateaction',[userController::class,'commoncertificateaction']);
-Route::post('/userviewschemes',[userController::class,'birthcertificateaction']);
-Route::post('/viewusercertificate',[userController::class,'deathcertificateaction']);
-Route::post('/marrigecertificateaction',[userController::class,'marrigecertificateaction']);
-Route::post('/commoncertificateaction',[userController::class,'commoncertificateaction']);
+Route::post('/userviewschemes',[userController::class,'userviewschemes']);
+
+Route::get('/viewusercertificate',[userController::class,'viewusercertificate']);
+// Route::get('/viewusermarriage',[userController::class,'commoncertificateaction']);
 

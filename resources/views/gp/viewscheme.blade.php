@@ -1,5 +1,5 @@
-@extends('secretary.index')
-@section('secretary')
+@extends('gp.gpindex')
+@section('gpindex')
 <div class="container">
     
 
@@ -32,7 +32,7 @@
                             <td>{{$value->date}}</td>
                             <td>{{$value->name}}</td>
                             <td>{{$value->status}}</td>
-                            <td><a href="/verifys/{{$value->id}}">Verify</a></td>
+                            <td><a href="/approves/{{$value->id}}">Approve</a></td>
                         </tr>
                         @endforeach
                     </table>

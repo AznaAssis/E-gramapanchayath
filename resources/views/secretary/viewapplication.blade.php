@@ -1,21 +1,14 @@
 @extends('secretary.index')
 @section('secretary')
-<div class="container">
-    
-
-    <div class="row">
-        <center>
-            <label for="" class="form-label">
-                <h2>VIEW SCHEME</h2>
-            </label>
-        </center>
-        <div class="col-sm-12">
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-secondary text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-
-                    </div>
-                    <div class="table-responsive">
+<section>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>
+                        <center><b> SCHEMES APPLICATIONS</b></center>
+                    </h1>
+                    <br><br><br><br>
                     <table class="table table-hover table-dark">
                         <tr>
                             <th>ID</th>
@@ -36,10 +29,9 @@
                         </tr>
                         @endforeach
                     </table>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

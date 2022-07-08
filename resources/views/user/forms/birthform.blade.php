@@ -4,7 +4,8 @@
         <div class="container">
             <center> <h2>APPLICATION FOR BIRTH REGISTRATION</h2></center>
             <br><br><br>
-            <form  method="post" action="/birthcertificateaction">
+            <form  method="post" enctype="multipart/form-data" action="/birthcertificateaction">
+                @csrf
                 <div class="row">
                     <div class="col-sm-6">
                         <label for="">CHILD NAME</label>
@@ -38,8 +39,8 @@
                         <label for="">GENDER</label>
                     </div>
                     <div class="col-sm-3">
-                        Male<input type="radio" name="gender">
-                        Female<input type="radio" name="gender">
+                        Male<input type="radio" value="male" name="gender">
+                        Female<input type="radio" value="female" name="gender">
                     </div>
                 </div>
                 <div class="row">
@@ -49,7 +50,7 @@
                     </div>
                     <div class="col-sm-4">
                         <label for="">APPLICATION DATE</label>
-                        <input type="date" name="appdate" id="" class="form-control">
+                        <input type="date" name="applicationdate" id="" class="form-control">
                     </div>
                     <div class="col-sm-4">
                         <label for="">HOSPITAL BILL</label>

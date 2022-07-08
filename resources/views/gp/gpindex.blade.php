@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Admin- E-garama panchayath
+    <title>President- E-garama panchayath
     </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -60,8 +60,7 @@
                     <a href="/gp/gpindex" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>HOME</a>
                     <a href="/gp/viewdetails" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>VIEW GP</a>
                     <a href="/gp/secretary" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>Manage Secretary</a>
-                    <a href="/gp/viewapplication" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>View Application</a>
-                    <a href="/gp/viewcertificate" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>VIEW Certificates</a>
+                    <a href="/gp/viewcertificate" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>View Certificates</a>
                     <a href="/gp/viewservices" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>View services</a>
                     <a href="/gp/viewusers" class="nav-item nav-link "><i class="fa fa-laptop me-2"></i>View Users</a>
                     <a href="/gp/category" class="nav-item nav-link"><i class="fa fa-laptop me-2"></i>Manage category</a>
@@ -91,13 +90,12 @@
                 </div>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                        <span class="d-none d-lg-inline-flex">John Doe</span>
+                        
+                        <span class="d-none d-lg-inline-flex">President</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                        <a href="#" class="dropdown-item">My Profile</a>
-                        <a href="#" class="dropdown-item">Settings</a>
-                        <a href="#" class="dropdown-item">Log Out</a>
+                        
+                        <a href="/logout" class="dropdown-item">Log Out</a>
                     </div>
                 </div>
             </div>

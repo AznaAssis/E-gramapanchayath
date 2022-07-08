@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2022 at 05:36 AM
+-- Generation Time: Jul 08, 2022 at 01:59 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -62,10 +62,17 @@ CREATE TABLE `birthcertificates` (
   `birthplace` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `applicationdate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `bill` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending verification',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `birthcertificates`
+--
+
+INSERT INTO `birthcertificates` (`id`, `gpid`, `userid`, `childnname`, `fathernname`, `mothername`, `dob`, `permenantaddress`, `currentaddress`, `gender`, `birthplace`, `applicationdate`, `bill`, `status`, `created_at`, `updated_at`) VALUES
+(1, '1', '1', 'akhila', 'Thankachan', 'zxcvbn', '10/05/2022', 'edjlksadrywerwere', 'gertertwet', 'female', 'Ernakulam', '2022-07-22', '02.jpg', 'approve', NULL, '2022-07-08 06:21:05');
 
 -- --------------------------------------------------------
 
@@ -87,11 +94,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category`, `discription`, `gpid`, `created_at`, `updated_at`) VALUES
-(1, 'birth certificate', 'All Indian Citizens need to obtain a Birth Certificate from the Government to avail various facilities provided by the Government. The birth certificate is an essential document that would be required for admission to the school, college, or any other institution. Also, a birth certificate is required for obtaining identities like passport, voter id, driving license, and marriage certificate. Finally, a birth certificate would also be helpful while applying for visas and Green Card.', 2, NULL, NULL),
-(2, 'death certificate', 'As per the Registration of Birth & Deaths Act, 1969 every death has to be registered with the concerned State Government. Death Certificate is an important document issued by the Government to the nearest relatives of the deceased. In Kerala, the death certificate is issued by the Civil Registration Department stating the date, fact and cause of death. In this article, we look at the procedure for obtaining a death certificate in Kerala.', 2, NULL, NULL),
-(3, 'marriage(common)', 'Marriages that are solemnized in the State of Kerala are governed by The Kerala Registration of Marriages (Common) Rules, 2008. In Kerala, marriage registration can be done online or through the Registrar offices. In this article, we review the process for marriage registration in Kerala, terms of Marriage, documents to be submitted along with Form 1 and related mandatory documents as well as conditions.', 2, NULL, NULL),
-(4, 'marriage(Hindu)', 'Marriages that are solemnized in the State of Kerala are governed by The Kerala Registration of Marriages (Common) Rules, 2008. In Kerala, marriage registration can be done online or through the Registrar offices. In this article, we review the process for marriage registration in Kerala, terms of Marriage, documents to be submitted along with Form 1 and related mandatory documents as well as conditions.', 2, NULL, NULL),
-(5, 'others', 'Possession Certificate in Kerala\r\nPossession certificate is a document which a property seller gives to a buyer stating the possession date of the property. Possession certificate is issued by concerned Tahsildar in Rural areas and RDO in urban areas. Possession is mandatory to include the property in the revenue records. Further, possession certificate is required to secure a loan. In this article, we look at Kerala Possession certificate application procedure in detail.', 2, NULL, NULL);
+(1, 'birth certificate', 'All Indian Citizens need to obtain a Birth Certificate from the Government to avail various facilities provided by the Government. The birth certificate is an essential document that would be required for admission to the school, college, or any other institution. Also, a birth certificate is required for obtaining identities like passport, voter id, driving license, and marriage certificate. Finally, a birth certificate would also be helpful while applying for visas and Green Card.', 1, NULL, NULL),
+(2, 'death certificate', 'All Indian Citizens need to obtain a Birth Certificate from the Government to avail various facilities provided by the Government. The birth certificate is an essential document that would be required for admission to the school, college, or any other institution. Also, a birth certificate is required for obtaining identities like passport, voter id, driving license, and marriage certificate. Finally, a birth certificate would also be helpful while applying for visas and Green Card.', 1, NULL, NULL),
+(3, 'marriage(common)', 'All Indian Citizens need to obtain a Birth Certificate from the Government to avail various facilities provided by the Government. The birth certificate is an essential document that would be required for admission to the school, college, or any other institution. Also, a birth certificate is required for obtaining identities like passport, voter id, driving license, and marriage certificate. Finally, a birth certificate would also be helpful while applying for visas and Green Card.', 1, NULL, NULL),
+(4, 'marriage(Hindu)', 'All Indian Citizens need to obtain a Birth Certificate from the Government to avail various facilities provided by the Government. The birth certificate is an essential document that would be required for admission to the school, college, or any other institution. Also, a birth certificate is required for obtaining identities like passport, voter id, driving license, and marriage certificate. Finally, a birth certificate would also be helpful while applying for visas and Green Card.', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -112,8 +118,16 @@ CREATE TABLE `deathcertificates` (
   `gender` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `applicationdate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `bill` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending verification',
+  `updated_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `deathcertificates`
+--
+
+INSERT INTO `deathcertificates` (`id`, `gpid`, `userid`, `name`, `fathernname`, `mothername`, `dod`, `rcard`, `certificate`, `gender`, `applicationdate`, `bill`, `status`, `updated_at`) VALUES
+(1, '1', '1', 'sjdhawdas', 'asdfg', 'zxcvbn', '10/05/2022', '1.jpg', '01.jpg', 'female', '2022-07-09', 'banner-bg.jpg', 'approve', '2022-07-08');
 
 -- --------------------------------------------------------
 
@@ -177,9 +191,47 @@ CREATE TABLE `gps` (
 --
 
 INSERT INTO `gps` (`id`, `name`, `email`, `phno`, `username`, `password`, `state`, `district`, `bp`, `taluk`, `wards`, `population`, `schools`, `hospitals`, `gpimage`, `created_at`, `updated_at`) VALUES
-(2, 'Sreemoolangaram', 'srmgp@gmail.com', 896547123, 'smnagar', '123', 'Kerala', 'Ernakulam', 'Parakadav', 'aluva', '16', 25789, 8, 2, 'smnagar.png', NULL, '2022-06-28 22:53:21'),
-(4, 'Kanjoor', 'kanjoorgp@gmail.com', 1235879, 'kanjoor', '123', 'Kerala', 'Ernakulam', 'Parakadav', 'aluva', '6', 3657, 8, 4, 'kanjoor.png', NULL, NULL),
-(5, 'alapad', 'alapad@gm.in', 7894652798, 'alapad', 'alapad', 'Kerala', 'Kollam', 'alapad', 'alapad', '9', 4587, 5, 10, 'alapad.jpg', NULL, NULL);
+(1, 'Sreemoolangaram', 'srmgp@gmail.com', 896547123, 'smnagar', '123', 'Kerala', 'Ernakulam', 'Parakadav', 'aluva', '16', 25789, 8, 2, 'smnagar.png', NULL, '2022-06-28 22:53:21'),
+(6, 'alapad', 'alapad@gm.in', 54158746, 'alapad', '123', 'Kerala', 'Alappuzha', 'alapad', 'alapad', '12', 52469, 5894, 12, 'alapad.jpg', NULL, NULL),
+(7, 'Kanjoor', 'kanjoorgp@gmail.com', 1235748, 'kanjoor', '12365', 'Kerala', 'Ernakulam', 'Parakadav', 'aluva', '16', 569874, 5, 12, 'gp.png', NULL, NULL),
+(8, 'kalady', 'kalady@gmin', 98545, 'kalady', '123', 'Kerala', 'Ernakulam', 'kalady', 'kalady', '15', 56987, 12, 15, 'gp.png', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `marriagecertificates`
+--
+
+CREATE TABLE `marriagecertificates` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `mtype` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `userid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gpid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hphoto` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wphoto` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hrelegion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wrelegion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hcast` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wcast` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hage` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `wage` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hoccupation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `woccupation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hidproof` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `widproof` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending verification',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `marriagecertificates`
+--
+
+INSERT INTO `marriagecertificates` (`id`, `mtype`, `userid`, `gpid`, `hphoto`, `wphoto`, `hname`, `wname`, `hrelegion`, `wrelegion`, `hcast`, `wcast`, `hage`, `wage`, `hoccupation`, `woccupation`, `hidproof`, `widproof`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'hindu', '1', '1', 'banner-bg.jpg', 'banner-bg.jpg', 'sasd', 'erewr', 'Hindu', 'Hindu', 'Ezhava', 'Ezhava', '21', '21', 'sgbdhsadf', 'safdasdsa', 'banner-bg.jpg', 'banner-bg.jpg', 'approve', NULL, '2022-07-08 06:17:20');
 
 -- --------------------------------------------------------
 
@@ -206,12 +258,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2022_06_29_044119_create_secretaries_table', 3),
 (9, '2022_06_29_052842_create_admins_table', 4),
 (11, '2022_06_29_053808_create_usertables_table', 5),
-(24, '2022_06_29_110344_create_categories_table', 6),
-(25, '2022_07_01_101809_create_schemes_table', 6),
-(26, '2022_07_05_081853_create_feedabcks_table', 6),
-(27, '2022_07_06_082906_create_birthcertificates_table', 6),
-(28, '2022_07_06_103111_create_deathcertificates_table', 6),
-(31, '2022_07_07_072354_create_schemeapplications_table', 7);
+(38, '2022_06_29_110344_create_categories_table', 6),
+(39, '2022_07_01_101809_create_schemes_table', 6),
+(40, '2022_07_05_081853_create_feedabcks_table', 6),
+(41, '2022_07_06_082906_create_birthcertificates_table', 6),
+(42, '2022_07_06_103111_create_deathcertificates_table', 6),
+(43, '2022_07_07_072354_create_schemeapplications_table', 6),
+(44, '2022_07_08_064053_create_marriagecertificates_table', 7);
 
 -- --------------------------------------------------------
 
@@ -264,7 +317,7 @@ CREATE TABLE `schemeapplications` (
 --
 
 INSERT INTO `schemeapplications` (`id`, `schemeid`, `userid`, `date`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2022-07-08', 'application completed', NULL, NULL);
+(1, 1, 1, '2022-07-10', 'verified', NULL, '2022-07-08 05:32:31');
 
 -- --------------------------------------------------------
 
@@ -276,7 +329,7 @@ CREATE TABLE `schemes` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `panchayath_id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `about` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `about` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `amount` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `adate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `enddate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -290,8 +343,7 @@ CREATE TABLE `schemes` (
 --
 
 INSERT INTO `schemes` (`id`, `panchayath_id`, `name`, `about`, `amount`, `adate`, `enddate`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2, 'House Scheme', 'The Pradhan Mantri Awas Yojana (PMAY) is an initiative of the Government of India which aims at providing affordable housing to the urban poor by the year 2022. The scheme was first launched on 1 June 2015. The interest rate for the PMAY scheme starts at 6.50% p.a. and can be availed for a tenure of up to 20 years.', '250000', '2022-06-12', '2022-07-12', 'available', NULL, NULL),
-(2, 4, 'House Scheme', 'Pradhan Mantri Awas Yojana – Urban (PMAY-U), a flagship Mission of Government of India being implemented by Ministry of Housing and Urban Affairs (MoHUA), was launched on 25th June 2015. The Mission addresses urban housing shortage among the EWS/LIG and MIG categories including the slum dwellers by ensuring a pucca house to all eligible urban households by the year 2022, when Nation completes 75 years of its Independence.', '25000', '2022-07-15', '2022-08-07', 'available', NULL, NULL);
+(1, 1, 'House Scheme', 'saedweiwqe\r\nwqweqweqw\r\nweeqeqweqwehwqrwqe\r\ndfsdfuqwieoq', '250000', '2022-07-08', '2022-08-07', 'available', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -316,7 +368,7 @@ CREATE TABLE `secretaries` (
 --
 
 INSERT INTO `secretaries` (`id`, `name`, `panchayth`, `phno`, `email`, `username`, `password`, `created_at`, `updated_at`) VALUES
-(4, 'abhirami', 'Kanjoor', 4856469, 'abhirami@gma.in', 'abhirami', 'abhirami', NULL, NULL);
+(4, 'abhirami', 'Sreemoolangaram', 4856469, 'abhirami@gma.in', 'abhirami', 'abhirami', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -422,6 +474,12 @@ ALTER TABLE `gps`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `marriagecertificates`
+--
+ALTER TABLE `marriagecertificates`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -487,19 +545,19 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `birthcertificates`
 --
 ALTER TABLE `birthcertificates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `deathcertificates`
 --
 ALTER TABLE `deathcertificates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -517,13 +575,19 @@ ALTER TABLE `feedabcks`
 -- AUTO_INCREMENT for table `gps`
 --
 ALTER TABLE `gps`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `marriagecertificates`
+--
+ALTER TABLE `marriagecertificates`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -541,7 +605,7 @@ ALTER TABLE `schemeapplications`
 -- AUTO_INCREMENT for table `schemes`
 --
 ALTER TABLE `schemes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `secretaries`

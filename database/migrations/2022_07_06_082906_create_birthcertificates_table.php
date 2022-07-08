@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('birthplace');
             $table->string('applicationdate');
             $table->string('bill');
-            $table->string('status');
+            $table->string('status')->default('pending verification');
             $table->timestamps();
         });
     }

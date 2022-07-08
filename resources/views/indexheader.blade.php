@@ -93,7 +93,6 @@
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link">Contact</a>
-                        <a href="/news" class="nav-item nav-link">News</a>
                     </div>
                 </div>
             </nav>

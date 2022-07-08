@@ -8,14 +8,19 @@ use App\models\gp;
 use App\models\scheme;
 use App\models\category;
 use App\models\schemeapplication;
-
+use App\models\birthcertificate;
+use App\models\deathcertificate;
+use App\models\marriagecertificate;
 
 class userController extends Controller
 {
 
     public function userindex()
     {
-        return view('user.userindex');
+
+        $id = session('sess');
+        $data['user']=usertable::where('id',$id)->get();
+        return view('user.userindex',$data);
     }
     public function editprofile()
     {
@@ -92,53 +97,192 @@ class userController extends Controller
     }
     public function readscheme($id)
     {
-        $userid=session('sess');
+        $userid = session('sess');
         $data['scheme'] = scheme::join('gps', 'gps.id', '=', 'schemes.panchayath_id')
             ->join('usertables', 'usertables.panchayth', '=', 'gps.name')
             ->where('usertables.id', $userid)
             ->where('schemes.id', $id)
             ->get();
-        return view('user.readscheme',$data);
+        return view('user.readscheme', $data);
     }
     public function applyscheme($id)
     {
-        $userid=session('sess');
-        $data['scheme']=scheme::where('id',$id)->get();
-        $data['user']=usertable::where('id',$userid)->get();
-        return view('user.forms.schemeapplyform',$data);
+        $userid = session('sess');
+        $data['scheme'] = scheme::where('id', $id)->get();
+        $data['user'] = usertable::where('id', $userid)->get();
+        return view('user.forms.schemeapplyform', $data);
     }
     public function schemeapllyaction(Request $req, $id)
     {
-        $userid=session('sess');
-        $date=$req->input('date');
-        $data=[
-            'schemeid'=>$id,
-            'userid'=>$userid,
-            'date'=>$date
+        $userid = session('sess');
+        $date = $req->input('date');
+        $data = [
+            'schemeid' => $id,
+            'userid' => $userid,
+            'date' => $date
         ];
         schemeapplication::insert($data);
     }
     public function applycertificates($name)
     {
-        if($name=="birth certificate")
-        {
+        if ($name == "birth certificate") {
             return view('user.forms.birthform');
-        }
-        elseif($name=="death certificate")
-        {
+        } elseif ($name == "death certificate") {
             return view('user.forms.deathform');
-        }
-        elseif($name=="marriage(common)"||$name=="marriage(Hindu)")
-        {
+        } elseif ($name == "marriage(common)" || $name == "marriage(Hindu)") {
             return view('user.forms.marriageform');
-        }
-        else
-        {
+        } else {
             return view('user.forms.commonform');
         }
     }
-    public function view()
+    public function birthcertificateaction(Request $req)
     {
-        return view('user.viewcertificate');
+        $id = session('sess');
+        $panchayth = usertable::where('id', $id)->value('panchayth');
+        $gpid = gp::where('name', $panchayth)->value('id');
+        $childname = $req->input('cname');
+        $fathernname = $req->input('fname');
+        $mothername = $req->input('mname');
+        $dob = $req->input('dob');
+        $permenantaddress = $req->input('paddress');
+        $currentaddress = $req->input('caddress');
+        $gender = $req->input('gender');
+        $birthplace = $req->input('birthplace');
+        $applicationdate = $req->input('applicationdate');
+        $bill = $req->file('bill');
+        $filename = $bill->getClientOriginalName();
+        $bill->move(public_path() . '\certificate', $filename);
+        $data = [
+            'gpid' => $gpid,
+            'userid' => $id,
+            'childnname' => $childname,
+            'mothername' => $mothername,
+            'fathernname' => $fathernname,
+            'dob' => $dob,
+            'permenantaddress' => $permenantaddress,
+            'currentaddress' => $currentaddress,
+            'gender' => $gender,
+            'birthplace' => $birthplace,
+            'applicationdate' => $applicationdate,
+            'bill' => $filename
+        ];
+        birthcertificate::insert($data);
+        return redirect('/view');
+    }
+    public function deathcertificateaction(Request $req)
+    {
+        $id = session('sess');
+        $panchayth = usertable::where('id', $id)->value('panchayth');
+        $gpid = gp::where('name', $panchayth)->value('id');
+        $name = $req->input('name');
+        $fathernname = $req->input('fname');
+        $mothername = $req->input('mname');
+        $dod = $req->input('dob');
+        $gender = $req->input('gender');
+        $applicationdate = $req->input('appdate');
+        $bill = $req->file('bill');
+        $filename = $bill->getClientOriginalName();
+        $bill->move(public_path() . '\certificate', $filename);
+        $rcard = $req->file('rcard');
+        $filename2 = $rcard->getClientOriginalName();
+        $rcard->move(public_path() . '\certificate', $filename2);
+        $certificate = $req->file('certificate');
+        $filename3 = $certificate->getClientOriginalName();
+        $certificate->move(public_path() . '\certificate', $filename3);
+        $data = [
+            'gpid' => $gpid,
+            'userid' => $id,
+            'name' => $name,
+            'mothername' => $mothername,
+            'fathernname' => $fathernname,
+            'dod' => $dod,
+            'rcard' => $filename2,
+            'certificate' => $filename3,
+            'gender' => $gender,
+            'applicationdate' => $applicationdate,
+            'bill' => $filename
+        ];
+        deathcertificate::insert($data);
+        return redirect('/view');
+    }
+    public function marrigecertificateaction(Request $req)
+    {
+        $id = session('sess');
+        $panchayth = usertable::where('id', $id)->value('panchayth');
+        $gpid = gp::where('name', $panchayth)->value('id');
+        $hidproof = $req->file('hidproof');
+        $filename = $hidproof->getClientOriginalName();
+        $hidproof->move(public_path() . '\certificate', $filename);
+        $widproof = $req->file('widproof');
+        $filename1 = $widproof->getClientOriginalName();
+        $widproof->move(public_path() . '\certificate', $filename1);
+        $hphoto = $req->file('hphoto');
+        $filename2 = $hphoto->getClientOriginalName();
+        $hphoto->move(public_path() . '\certificate', $filename2);
+        $wphoto = $req->file('wphoto');
+        $filename3 = $wphoto->getClientOriginalName();
+        $wphoto->move(public_path() . '\certificate', $filename3);
+        $hname = $req->input('hname');
+        $wname = $req->input('wname');
+        $mtype = $req->input('mtype');
+        $hrelegion = $req->input('hrelegion');
+        $wrelegion = $req->input('wrelegion');
+        $hcast = $req->input('hcast');
+        $wcast = $req->input('wcast');
+        $hage = $req->input('hage');
+        $wage = $req->input('wage');
+        $hoccupation = $req->input('hoccupation');
+        $woccupation = $req->input('woccupation');
+        $data = [
+            'gpid' => $gpid,
+            'mtype' => $mtype,
+            'userid' => $id,
+            'hname' => $hname,
+            'wname' => $wname,
+            'hphoto' => $filename2,
+            'wphoto' => $filename3,
+            'hrelegion' => $hrelegion,
+            'wrelegion' => $wrelegion,
+            'hcast' => $hcast,
+            'wcast' => $wcast,
+            'hage' => $hage,
+            'wage' => $wage,
+            'hoccupation' => $hoccupation,
+            'woccupation' => $woccupation,
+            'hidproof' => $filename,
+            'widproof' => $filename1,
+        ];
+        marriagecertificate::insert($data);
+        return redirect('/view');
+    }
+    public function viewusercertificate()
+    {
+        $id = session('sess');
+        $data['certificate'] = category::join('gps', 'gps.id', '=', 'categories.gpid')
+            ->join('usertables', 'usertables.panchayth', '=', 'gps.name')
+            ->where('usertables.id', $id)
+            ->select('categories.id', 'categories.category')->get();
+        return view('user.viewcertificate', $data);
+    }
+    public function view($name)
+    {
+        $id = session('sess');
+        if ($name == "birth certificate") {
+            $data['birth']=birthcertificate::where('userid',$id)->get();
+            return view('user.birthview',$data);
+        } elseif ($name == "death certificate") {
+            $data['death']=deathcertificate::where('userid',$id)->get();
+            return view('user.deathview',$data);
+        } elseif ($name == "marriage(common)") {
+            $data['marriage']=marriagecertificate::where('userid',$id)->where('mtype',"common")->get();
+            return view('user.marriageview',$data);
+        }
+        elseif ($name == "marriage(Hindu)") {
+            $data['marriage']=marriagecertificate::where('userid',$id)->where('mtype',"hindu")->get();
+            return view('user.marriageview',$data);
+        } else {
+            return redirect('/viewusercertificate');
+        }
     }
 }
+
